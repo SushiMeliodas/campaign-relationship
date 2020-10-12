@@ -15,9 +15,9 @@ class CreateCampaignPackageProductsTable extends Migration
     {
         Schema::create('campaign_package_products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('campaign_id')->unsigned();
-            $table->bigInteger('package_id')->unsigned();
-            $table->bigInteger('product_id')->unsigned();
+            $table->foreignId('campaign_id')->constrained();
+            $table->foreignId('package_id')->constrained();
+            $table->foreignId('product_id')->constrained();
             $table->timestamps();
         });
     }
