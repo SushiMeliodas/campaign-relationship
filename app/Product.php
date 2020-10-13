@@ -12,9 +12,9 @@ class Product extends Model
         'product_name', 'product_quantity', 'product_unit_price',
     ];
 
-    public function packages()
+    public function packageProducts()
     {
-        return $this->belongsToMany(Package::class, 'campaign_package_products', 'package_id', 'product_id');
+        return $this->belongsToMany(Package::class, 'package_products');
     }
 
     // public function campaignPackageProduct()

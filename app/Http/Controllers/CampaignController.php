@@ -10,24 +10,25 @@ class CampaignController extends Controller
 {
     public function showIndexPage(Request $request, Campaign $campaign)
     {
-        // $campaign = Campaign::find(1);
+        $campaigns = Campaign::all();
 
-        $campaign = DB::table('campaign_package_products as D')
-            ->join('campaigns as A', 'D.campaign_id', '=', 'A.id')
-            ->join('packages as B', 'D.package_id', '=', 'B.id')
-            ->join('products as C', 'D.product_id', '=', 'C.id')
-            ->select(
-                'A.campaign_name',
-                'B.package_name',
-                'B.package_quantity',
-                'B.package_unit_price',
-                'C.product_name',
-                'C.product_quantity',
-                'C.product_unit_price'
-            )
-            ->get();
+        // dd($campaigns[0]->campaignPackages)
 
-        // dd($campaign);
-        return view('index', compact('campaign'));
+        // $campaign = DB::table('campaign_package_products as D')
+        //     ->join('campaigns as A', 'D.campaign_id', '=', 'A.id')
+        //     ->join('packages as B', 'D.package_id', '=', 'B.id')
+        //     ->join('products as C', 'D.product_id', '=', 'C.id')
+        //     ->select(
+        //         'A.campaign_name',
+        //         'B.package_name',
+        //         'B.package_quantity',
+        //         'B.package_unit_price',
+        //         'C.product_name',
+        //         'C.product_quantity',
+        //         'C.product_unit_price'
+        //     )
+        //     ->get();
+
+        return view('index', compact('campaigns'));
     }
 }

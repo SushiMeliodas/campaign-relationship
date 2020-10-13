@@ -13,19 +13,9 @@ class Package extends Model
         'package_name', 'package_quantity', 'package_unit_price',
     ];
 
-    public function campaigns()
+
+    public function packageProducts()
     {
-        return $this->belongsToMany(Campaign::class, 'campaign_package_products', 'package_id', 'campaign_id');
+        return $this->belongsToMany(Product::class, 'package_products');
     }
-
-    public function products()
-    {
-        return $this->belongsToMany(Product::class, 'campaign_package_products', 'package_id', 'product_id');
-    }
-
-
-    // public function campaignPackageProduct()
-    // {
-    //     return $this->belongsToMany(CampaignPackageProduct::class);
-    // }
 }

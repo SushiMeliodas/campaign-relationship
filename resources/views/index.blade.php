@@ -27,16 +27,20 @@
         </thead>
 
         <tbody>
-          @foreach ($campaign as $campaigns)
+          @foreach ($campaigns as $campaign)
+          @foreach($campaign->campaignPackages as $package)
+          @foreach($package->packageProducts as $product )
           <tr>
-            <td>{{$campaigns->campaign_name}}</td>
-            <td>{{$campaigns->package_name}}</td>
-            <td>{{$campaigns->package_quantity}}</td>
-            <td>{{$campaigns->package_unit_price}}</td>
-            <td>{{$campaigns->product_name}}</td>
-            <td>{{$campaigns->product_quantity}}</td>
-            <td>{{$campaigns->product_unit_price}}</td>
+            <td>{{$campaign->campaign_name}}</td>
+            <td>{{$package->package_name}}</td>
+            <td>{{$package->package_quantity}}</td>
+            <td>{{$package->package_unit_price}}</td>
+            <td>{{$product->product_name}}</td>
+            <td>{{$product->product_quantity}}</td>
+            <td>{{$product->product_unit_price}}</td>
           </tr>
+          @endforeach
+          @endforeach
           @endforeach
         </tbody>
       </table>
