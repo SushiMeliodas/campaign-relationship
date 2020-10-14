@@ -12,11 +12,11 @@ class Customer extends Model
 
     public function address()
     {
-        return $this->hasMany(Address::class, 'address');
+        return $this->hasMany(Address::class);
     }
 
     public function orders()
     {
-        return $this->belongsTo(Order::class, 'orders');
+        return $this->belongsTo(Order::class);
     }
 }
