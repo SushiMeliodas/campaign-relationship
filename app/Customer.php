@@ -10,9 +10,13 @@ class Customer extends Model
         'customer_name', 'customer_email', 'customer_contact_no',
     ];
 
-    public function orderCustomer()
+    public function address()
     {
-        return $this->belongsToMany(Package::class, 'order_customer');
-        // return $this->belongsToMany(Package::class, 'campaign_package_products', 'package_id', 'campaign_id');
+        return $this->hasMany(Address::class, 'address');
+    }
+
+    public function orders()
+    {
+        return $this->belongsTo(Order::class, 'orders');
     }
 }

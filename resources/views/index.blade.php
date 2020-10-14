@@ -27,6 +27,7 @@
         </thead>
 
         <tbody>
+          {{-- for campaign loop through pivot table to display data --}}
           @foreach ($campaigns as $campaign)
           @foreach($campaign->campaignPackages as $package)
           @foreach($package->packageProducts as $product )

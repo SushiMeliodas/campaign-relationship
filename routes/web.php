@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('campaign/table', 'CampaignController@showIndexPage')->name('campaign.table');
+
+Route::get('order/table', 'OrderController@showIndexPage')->name('order.table');

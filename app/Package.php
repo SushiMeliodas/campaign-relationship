@@ -13,9 +13,8 @@ class Package extends Model
         'package_name', 'package_quantity', 'package_unit_price',
     ];
 
-
     public function packageProducts()
     {
-        return $this->belongsToMany(Product::class, 'package_products');
+        return $this->belongsToMany(Product::class);
     }
 }

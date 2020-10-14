@@ -10,15 +10,24 @@ class Order extends Model
         'order_name',
     ];
 
-    public function orderCampaign()
+    public function customer()
     {
-        return $this->belongsToMany(Package::class, 'order_campaign');
-        // return $this->belongsToMany(Package::class, 'campaign_package_products', 'package_id', 'campaign_id');
+        return $this->belongsTo(Customer::class);
     }
 
-    public function orderCustomer()
+    public function campaign()
     {
-        return $this->belongsToMany(Package::class, 'order_customer');
-        // return $this->belongsToMany(Package::class, 'campaign_package_products', 'package_id', 'campaign_id');
+        return $this->belongsTo(Campaign::class);
+    }
+
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
+    }
+
+    public function orderPackage()
+    {
+
+        return $this->belongsToMany(Package::class);
     }
 }
